@@ -1,7 +1,4 @@
-# nodedb
-NodeDB - a simple yet powerful persistency layer.
-
-## Why NodeDB?
+Why NodeDB?
 
 NodeDB was created to serve my need to have a simple yet powerful persistency layer. After decades of writing software and using ORMs, I grew tired of designing data base schemas, object hierarchies and doing all the plumbing and wiring up to overcome the object relational-impedance-mismatch-problem, again and again, ...
 
@@ -13,52 +10,48 @@ As with all software, data needs to be written into file(s) eventually and I did
 
 In order to overcome the object-relational gap, there are simplications and compromises to be made on both sides:
 
-### Relational side
-There is only on data schema: the "Node". This node is the unit of data exchange, all data is expressed as nodes, the data base excepts only nodes and delivers only nodes.
+Relational side: there is only on data schema: the "Node". This node is the unit of data exchange, all data is expressed as nodes, the data base excepts only nodes and delivers only nodes.
 
-#### Schema of a node:
+Schema of a node:
 	
-!   Field  ! Type                  ! Description                                                           !
-!--------- !-----------------------!---------------------------------------------------------------------- |
-! id       ! Integer, Primary Key  | unique, automatically assigned                                        |
-! typeid   ! Integer, Indexed      | schema node axis                                                      |
-! ownerid  ! Integer, Indexed      | owner axis                                                            |
-! up       ! Integer, Indexed      | structural axis: tree, list, composite, master-detail, ...            |
-! left     ! Integer, Indexed      | edge axis to the left  - uni- or bidirectional links between nodes    |
-! right    ! Integer, Indexed      | edge axis to the right - uni- or bidirectional links between nodes    |
-! flags    ! Integer               | top 31 bits reserved, low 32 bits for custom use                      |
-! text     ! String,  Indexed      | any text, node name, etc. could be used with like operator            |
-! created  ! DateTime              | creation date/time of this node, automatically set to current date/time |
-! start    ! DateTime              | custom date/time, initialized with created date/time                  |
-! end      ! DateTime              | custom date/time, initialized with deleted date/time                  |
-! deleted  ! DateTime              | deletion data/time initialized to a date far into the future and set to the current date/time on deletion |
-! content  ! Blob/[]Byte           | payload of this node, can be anything, i.e. an image, a document, a serialized object, ... |
+	Field 		Type					Description
+	---------	---------------------	------------------------------------------------------
+	id			Integer, Primary Key	unique, automatically assigned
+	typeid		Integer, Indexed		schema node axis
+	ownerid		Integer, Indexed		owner axis
+	up			Integer, Indexed		structural axis: tree, list, composite, master-detail, ...
+	left		Integer, Indexed		edge axis to the left  - uni- or bidirectional links between nodes
+	right		Integer, Indexed		edge axis to the right - uni- or bidirectional links between nodes
+	flags		Integer					top 31 bits reserved, low 32 bits for custom use
+	text		String, Indexed			any text, node name, etc. could be used with like operator
+	created		DateTime				creation date/time of this node, automatically set to current date/time
+	start		DateTime				custom date/time, initialized with created date/time
+	end			DateTime				custom date/time, initialized with deleted date/time 
+	deleted		DateTime				deletion data/time initialized to a date far into the future and set to the current date/time on deletion
+	content		Blob/[]Byte				payload of this node, can be anything, i.e. an image, a document, a serialized object, ...
+
 
 This simple schema can provide for all my needs in designing data structures, lists, documents, trees, composite, graphs, ... more on that later.
 
 With only one schema in the data base there is only one set of SQL-Statements needed to handle all data updates and queries. And everything could be done with only one table. Using only one table felt like a loss of design "ressources". So I came up with the idea to "call" tables collections (of nodes). The structur  Database - Tables - Records becomes Connection - Collections - Nodes. The node-ID is unique only within its collection, copying or moving nodes between collections requires additional adjustment work of source and target ids.
 
-### API:
+API:
  
-* Connection:
-	* Open(filename), Close(), Collections(), Collection(name), RemoveCollection(name), CloneCollection(source_name, target_name), Ping()
-* Collection:
-	* NewNode(), NewNodes(number), LoadNode(id), LoadNodes([]id), UpdateNode(node), UpdateNodes([]node), DeleteNode(node), DeleteNodes([]node)
-* Node:
-	* Public Fields + IsContentLoaded(), SetContentLoaded(bool), GetFlag(), SetFlag(), ...
-* Query:
-	* QueryAxes recursively, QueryList, QueryNeighbour, ... work in progress
+Connection:		Open(filename), Close(), Collections(), Collection(name), RemoveCollection(name), CloneCollection(source_name, target_name), Ping()
 
-* Graph-Algorithms:
-	* Shortest Path, Minimum Spanning Tree, ... future work
-* ...
+Collection:		NewNode(), NewNodes(number), LoadNode(id), LoadNodes([]id), UpdateNode(node), UpdateNodes([]node), DeleteNode(node), DeleteNodes([]node)
 
-## The Object-Oriented side
+Node:			Public Fields + IsContentLoaded(), SetContentLoaded(bool), GetFlag(), SetFlag(), ...
 
-There is no help from an ORM!
-Put up with the work of serializing your objects into a single unit of data exchange.
-The objects don't get filled with data automagically, but the process of storing and loading is fairly straightforward
-(the implemention language is Go, this makes it possible to directly embed a node as an anonymous property -> easy access to its data fields and content).
+Query:			QueryAxes recursively, QueryList, QueryNeighbour, ... work in progress
+
+Graph-Algorithms: 	Shortest Path, Minimum Spanning Tree, ... future work
+.
+.
+.
+
+
+The Object-Oriented side: There is no help from an ORM! Put up with the work of serializing your objects into a single unit of data exchange. The objects don't get filled with data automagically, but the process of storing and loading is fairly straightforward (the implemention language is Go, this makes it possible to directly embed a node as an anonymous property -> easy access to its data fields and content).
 
 
 --------------
@@ -82,7 +75,7 @@ The current design principles are:
 
 
 
-## Intended uses:
+Intended uses:
 
 A quick and simple persistency layer for a toy project or prototype.
 Simple Data-Management for a web site, backend for ... see JAMStack (Javascript - API - Markup)
@@ -97,3 +90,10 @@ Ideas:
 This is just the start of my journey, I want to create a second-brain-personal-information-project-management-system on top of NodeDB! Care to join?
 
 Cheers, Thomas
+
+
+
+
+
+
+
