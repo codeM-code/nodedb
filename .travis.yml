@@ -4,5 +4,6 @@ notifications:
   email:
     recipients:
     - Travis.APA@a-bc.net
+    - Thomas.Hedeler@codeM.GmbH
     on_success: always
     on_failure: always
