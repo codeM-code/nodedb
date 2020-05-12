@@ -18,7 +18,6 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/codeM-code/nodedb"
 	"github.com/codeM-code/nodedb/internal/cli"
 	"github.com/davecgh/go-spew/spew"
 )
