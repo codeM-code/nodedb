@@ -1,7 +1,7 @@
 # nodedb
 NodeDB - a simple yet powerful persistency layer.
 
-[![Software License](https://img.shields.io/badge/license-Apache 2.0-brightgreen.svg?style=flat-square)](LICENSE)
+[![Software License](https://img.shields.io/badge/license-Apache%202.0-brightgreen.svg?style=flat-square)](LICENSE)
 [![Go Report Card](https://goreportcard.com/badge/github.com/codeM-code/nodedb)](https://goreportcard.com/report/github.com/codeM-code/nodedb)
 [![Build Status](https://travis-ci.org/codeM-code/nodedb.svg?branch=master)](https://travis-ci.org/codeM-code/nodedb)
 [![GoDoc](https://godoc.org/github.com/codeM-code/nodedb?status.svg)](https://godoc.org/github.com/codeM-code/nodedb)
