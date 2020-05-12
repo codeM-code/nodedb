@@ -1,6 +1,11 @@
 # nodedb
 NodeDB - a simple yet powerful persistency layer.
 
+[![Software License](https://img.shields.io/badge/license-Apache 2.0-brightgreen.svg?style=flat-square)](LICENSE)
+[![Go Report Card](https://goreportcard.com/badge/github.com/codeM-code/nodedb)](https://goreportcard.com/report/github.com/codeM-code/nodedb)
+[![Build Status](https://travis-ci.org/codeM-code/nodedb.svg?branch=master)](https://travis-ci.org/codeM-code/nodedb)
+[![GoDoc](https://godoc.org/github.com/codeM-code/nodedb?status.svg)](https://godoc.org/github.com/codeM-code/nodedb)
+
 ## Why NodeDB?
 
 NodeDB was created to serve my need to have a simple yet powerful persistency layer. After decades of writing software and using ORMs, I grew tired of designing data base schemas, object hierarchies and doing all the plumbing and wiring up to overcome the object relational-impedance-mismatch-problem, again and again, ...
