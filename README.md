@@ -18,21 +18,21 @@ There is only on data schema: the "Node". This node is the unit of data exchange
 
 #### Schema of a node:
 	
-!   Field  ! Type                  ! Description                                                           !
-!--------- !-----------------------!---------------------------------------------------------------------- |
-! id       ! Integer, Primary Key  | unique, automatically assigned                                        |
-! typeid   ! Integer, Indexed      | schema node axis                                                      |
-! ownerid  ! Integer, Indexed      | owner axis                                                            |
-! up       ! Integer, Indexed      | structural axis: tree, list, composite, master-detail, ...            |
-! left     ! Integer, Indexed      | edge axis to the left  - uni- or bidirectional links between nodes    |
-! right    ! Integer, Indexed      | edge axis to the right - uni- or bidirectional links between nodes    |
-! flags    ! Integer               | top 31 bits reserved, low 32 bits for custom use                      |
-! text     ! String,  Indexed      | any text, node name, etc. could be used with like operator            |
-! created  ! DateTime              | creation date/time of this node, automatically set to current date/time |
-! start    ! DateTime              | custom date/time, initialized with created date/time                  |
-! end      ! DateTime              | custom date/time, initialized with deleted date/time                  |
-! deleted  ! DateTime              | deletion data/time initialized to a date far into the future and set to the current date/time on deletion |
-! content  ! Blob/[]Byte           | payload of this node, can be anything, i.e. an image, a document, a serialized object, ... |
+|   Field  | Type                  | Description                                                           |
+|--------- |-----------------------|---------------------------------------------------------------------- |
+| id       | Integer, Primary Key  | unique, automatically assigned                                        |
+| typeid   | Integer, Indexed      | schema node axis                                                      |
+| ownerid  | Integer, Indexed      | owner axis                                                            |
+| up       | Integer, Indexed      | structural axis: tree, list, composite, master-detail, ...            |
+| left     | Integer, Indexed      | edge axis to the left  - uni- or bidirectional links between nodes    |
+| right    | Integer, Indexed      | edge axis to the right - uni- or bidirectional links between nodes    |
+| flags    | Integer               | top 31 bits reserved, low 32 bits for custom use                      |
+| text     | String,  Indexed      | any text, node name, etc. could be used with like operator            |
+| created  | DateTime              | creation date/time of this node, automatically set to current date/time |
+| start    | DateTime              | custom date/time, initialized with created date/time                  |
+| end      | DateTime              | custom date/time, initialized with deleted date/time                  |
+| deleted  | DateTime              | deletion data/time initialized to a date far into the future and set to the current date/time on deletion |
+| content  | Blob/[]Byte           | payload of this node, can be anything, i.e. an image, a document, a serialized object, ... |
 
 This simple schema can provide for all my needs in designing data structures, lists, documents, trees, composite, graphs, ... more on that later.
 
